@@ -1,0 +1,20 @@
+# dhcpd.conf
+#
+# Configuration file for …(see 'man dhcpd.conf')
+#
+ddns-update-style none ;
+option domain-name "nombre_dominio";
+shared-network mi_red {
+ subnet ID_Red netmask mascara_red {
+ option routers IP_Gateway;
+ option subnet-mask mascara_red;
+ option broadcast-address IP_broadcastDeLaRed;
+ option domain-name-servers IP_servidorDNS1,
+ IP_servidorDNS2;
+ /* aún no se ha configurado el DNS pero coloque
+ La 8.8.8.8 y la asignado por su ISP */
+ Range IP1 IP2;
+ /* IP1 e IP2, son los límites inferior y superior de un rango
+ de direcciones IP dentro de la red de la ciudad particular */
+ }
+}
